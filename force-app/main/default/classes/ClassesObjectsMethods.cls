@@ -39,18 +39,12 @@ public with sharing class ClassesObjectsMethods {
      * @return A list containing the length of the string, a substring of the string, and the string in lower case.
      */
     public static List<String> practiceStringMethods() {
-        // Initialize a String with 'Hello, Salesforce!'
-        
-        // Get the length of the String        
-        // Get a substring of the String of the first 5 characters
-        // Convert the String to lower case
-        
-        // Return the list with the string data
-        // In the first position add the string length
-        // In the second position add the substring
-        // In the third position add the string in lower case
-
-        return null; // Replace null with the variable you used to store the result
+        String brownNose = 'Hello, SalesForce!';
+        String length = String.valueOf(brownNose.length());
+        String hello = brownNose.left(5);
+        String badPractice = brownNose.toLowerCase();
+        List<String> brownNoses = new List<String>{length, hello, badPractice};
+        return brownNoses;
     }
 
     /**
@@ -61,6 +55,11 @@ public with sharing class ClassesObjectsMethods {
      * @return A list of boolean values indicating whether the string starts with 'Sales', ends with 'Force', or contains 'Awesome'.
      */
     public static List<Boolean> checkStringContent(String input) {
+        Boolean sales = input.startsWith('Sales');
+        Boolean theForce = input.endsWith('Force');
+        Boolean everythingIsAwesome = input.contains('Awesome');
+        List <Boolean> benioffBois = new List <Boolean>{sales, theForce, everythingIsAwesome};
+        return benioffBois;
         // Initialize a list to store the results
         
         // Check if the string starts with 'Sales'
@@ -69,7 +68,7 @@ public with sharing class ClassesObjectsMethods {
         
         // Check if the string contains 'Awesome'
         
-        return null; // Replace null with the variable you used to store the result
+        // Replace null with the variable you used to store the result
     }
 
     /**
@@ -80,6 +79,9 @@ public with sharing class ClassesObjectsMethods {
      * @return A string consisting of only unique words from the input sentence.
      */
     public static String removeDuplicateWords(String sentence) {
+        List<String> badWritingBeware = new List<String>(sentence.split(' '));
+        Set<String> betterWritingNow = new Set<String>(badWritingBeware);
+        return String.join(betterWritingNow,' ');
         // Split the sentence into words
 
         // Create a set to store the unique words
@@ -89,7 +91,7 @@ public with sharing class ClassesObjectsMethods {
         // Join the unique words back into a sentence
 
         // Return the sentence with unique words
-        return null; // Replace null with the variable you used to store the result
+        // Replace null with the variable you used to store the result
     }
 
     /**
@@ -101,17 +103,19 @@ public with sharing class ClassesObjectsMethods {
      * @return The number of vowels in the string.
      */
     public static Integer countVowels(String str) {
-        // Initialize the result Integer
-
-        /*
-        for () {
-            // get individual characters from the string - hint use substring or split
-            // check if the character is a vowel
-            // if it is a vowel, increment the result Integer
+        Integer oldMcDonald = 0;
+        List<String> mcDonaldsValues = str.split('');
+        for(String vowel : mcDonaldsValues){
+            if(vowel.equalsIgnoreCase('a') 
+                || vowel.equalsIgnoreCase('e')
+                || vowel.equalsIgnoreCase('i')
+                || vowel.equalsIgnoreCase('o')
+                || vowel.equalsIgnoreCase('u')
+                ){
+                oldMcDonald++;
+            }
         }
-        */
-
-        return null; // Replace null with the variable you used to store the result
+        return oldMcDonald; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -124,18 +128,15 @@ public with sharing class ClassesObjectsMethods {
     public static String findTheScientist() {
         // The list of scientists' names
         List<String> scientistNames = new List<String>{'Tim Berners-Lee', 'Alan Turing', 'Grace Hopper', 'Donald Knuth', 'Guido van Rossum', 'Ken Thompson', 'Stephen Hawking'};
-
-        // The variable to store the concatenated string
-
-        // Loop through the list of scientists' names
-
-            // If the name doesn't contain the letter 'G', skip this iteration
-
-            // Add the name to the result string, followed by a comma
-
-        // Remove the last comma from the result string
-
-        return null; // Replace null with the variable you used to store the result
+        List<String> gNames = new List<String>();
+        for(String name : scientistNames){
+            if(name.containsIgnoreCase('g')== true){
+                gNames.add(name);
+            }
+        }
+        String aRoseByAnyOtherGname = String.join(gNames, ',');
+        aRoseByAnyOtherGname.removeEnd(',');
+        return aRoseByAnyOtherGname;
     }
 
     /**
@@ -148,11 +149,15 @@ public with sharing class ClassesObjectsMethods {
      */
     public static Double calculateDifferenceOfSquares(Double a, Double b) {
         // Square the input numbers using the Math.pow() function
+        Double square = 2;
+        Double aSquared = Math.pow(a, square);
+        Double bSquared = Math.pow(b, square);
+        Double fewerSquares = Math.abs(aSquared-bSquared);
 
         // Calculate the absolute difference using Math.abs() function
 
         // Return the result
-        return null; // Replace null with the variable you used to store the result
+        return fewerSquares; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -163,9 +168,10 @@ public with sharing class ClassesObjectsMethods {
      */
     public static Integer generateRandomNumber() {
         // Use Math class to generate number between 50 and 100
-
-        // Return the random integer
-        return null; // Replace null with the variable you used to store the result
+        return 50 + Math.round(math.random()*50);
+        //Hey hey hey who needs variables anyway?!
+        // Return the random integer 
+        // Replace null with the variable you used to store the result
     }
 
     /**
@@ -175,12 +181,21 @@ public with sharing class ClassesObjectsMethods {
      * @return The current date in the current user locale format.
      */
     public static String getCurrentDate() {
+        Date todaysDate = Date.today();
+        /*Integer mm = todaysDate.month();
+        Integer dd = todaysDate.day();
+        Integer yyyy = todaysDate.year();
+        return mm + '/' + dd + '/' + yyyy;
+        I could have deleted this when I realized.... but I was bitter.
+        */
+        return todaysDate.format();
+
         // Get the todays date
 
         // Format the current date
 
         // Return the result
-        return null; // Replace null with the variable you used to store the result
+        // Replace null with the variable you used to store the result
     }
 
     /**
@@ -190,6 +205,19 @@ public with sharing class ClassesObjectsMethods {
      * @return The number of the day of the week for the given date.
      */
     public static String getDayOfWeek(DateTime dt) {
+        Map<String, Integer> weeklyUnderpants = new Map <String, Integer>{
+            'Monday' => 1,
+            'Tuesday' => 2,
+            'Wednesday' => 3,
+            'Thursday' => 4,
+            'Friday' => 5,
+            'Saturday' => 6,
+            'Sunday' => 7
+        };
+
+        String dayOfWeek = dt.format('EEEE');
+        return String.valueOf(weeklyUnderpants.get(dayOfWeek));
+
         // Define a map of day of the week as a key and day number as the value
         // Monday = 1, Tuesday = 2, etc.
 
@@ -198,7 +226,6 @@ public with sharing class ClassesObjectsMethods {
         // Get the day number from the map using the day name
 
         // Return the result as a string
-        return null; // Replace null with the variable you used to store the result
     }
 
 
@@ -212,10 +239,11 @@ public with sharing class ClassesObjectsMethods {
      * @return The a positive number years between the two dates, or null if either date is null.
      */
     public static Integer calculateYearDifference(Date d1, Date d2) {
-
+        if(d1 == null || d2 == null){
+            return null;
+        }
+        return Math.abs(d1.year() - d2.year());
         // Subtract the difference in years
-
-        return null; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -226,20 +254,26 @@ public with sharing class ClassesObjectsMethods {
      * where you need to manipulate and manage book information.
      */
     public class Book {
+        public String title;
+        public String author;
+        public Integer pages;
         // Declare three public instance variables - title, author, pages
         // title
         // author
         // pages
     
         // Book constructor to initialize the title and author
-        public Book() {
+        public Book(String bookTitle, String bookAuthor) {
+            this.title = bookTitle;
+            this.author = bookAuthor;
             // Initialize the title and author
         }
     
         // Method that returns the details of the book
         public String getBookDetails() {
+            
             // return A string containing the details of the book in the format "Title: <title>, Author: <author>"
-            return null; // Replace null with the variable you used to store the result
+            return 'Title: '+ title + ', Author: ' + author; 
         }
     }
     
@@ -252,11 +286,10 @@ public with sharing class ClassesObjectsMethods {
      */
     public static String createAndGetBookDetails() {
         // Create a Book object with title "A Brief History of Time" and author "Stephen Hawking"
-
+        Book nerdBook = new Book ('A Brief History of Time', 'Stephen Hawking');
         // Call the getBookDetails method on the book object to get the details of the book
-
         // Return the details of the book
-        return null; // Replace null with the variable you used to store the result
+        return nerdBook.getBookDetails(); // Replace null with the variable you used to store the result
     }
 
     /**
@@ -270,18 +303,18 @@ public with sharing class ClassesObjectsMethods {
      */
     public static List<Book> generateBookList(Book myBook1) {
         // Create a list of books
-
+        Book magicBook = new Book('Harry Potter and the Chamber of Secrets', 'J.K. Rowling');
         // Update the title and author of myBook1
-
+        magicBook.pages = 352;
         // Update the pages for myBook1 to 352
-
+        Book nerdBook = new Book('A Brief History of Time', 'Stephen Hawking');
         // Create a new Book object with title "A Brief History of Time" and author "Stephen Hawking"
-
+        nerdBook.pages = 256;
         // Update the pages for A Brief History of Time to 256
-
+        List <Book> library = new List <Book>{magicBook, nerdBook};
         // Add the book to the list
         
-        return null; // Replace null with the variable you used to store the result      
+        return library; // Replace null with the variable you used to store the result      
     }
 
 
@@ -293,6 +326,34 @@ public with sharing class ClassesObjectsMethods {
      * where you need to manipulate and manage person information.
      */
     public class Person {
+        public String personName;
+        public Integer personAge;
+    
+
+        public Person(String myName, Integer myAge){
+            this.personName = myName;
+            this.personAge = myAge;
+        }
+
+        public String introduceYourself(){
+            return 'Hello, my name is ' + personName + ' and I am ' + personAge +' years old.';
+        }
+
+        public Integer getAge(){
+            return personAge;
+        }
+
+        public String getName(){
+            return personName;
+        }
+
+        public void setName(String newStudent){
+            personName = newStudent;
+        }
+
+        public void setAge(Integer newAge){
+            personAge = newAge;
+        }
         // Declare private two instance variables - (TEXT) name and (Number) age
         
         // Constructor to initialize the name and age
@@ -319,16 +380,17 @@ public with sharing class ClassesObjectsMethods {
 
     public static List<String> personDetails() {
         List<String> results = new List<String>();
+        Person genericDude = new Person('John Doe', 28);
         // Create a new instance of Person class
         // Name the person 'John Doe' and set the age to 28
-
+        results.add(genericDude.introduceYourself());
         // Add the details of the person using the introduceYourself method
-
         // Get the name of the person using the getter method and add it to the list
-
+        results.add(genericDude.getName());
+        results.add(String.valueof(genericDude.getAge()));
         // Get the age of the person using the getter method and add it to the list
         
-        return null; // Replace null with the variable you used to store the result
+        return results; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -340,9 +402,9 @@ public with sharing class ClassesObjectsMethods {
      */
     public static Person createPerson(String name, Integer age) {
         // Create a new instance of the Person class using the provided name and age
-        
+        Person fancyLady = new Person(name, age);
         // Return the new instance of the Person class
-        return null; // Replace null with the variable you used to store the result
+        return fancyLady; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -355,6 +417,10 @@ public with sharing class ClassesObjectsMethods {
      * @return A list of new Person objects.
      */
     public static List<Person> createMultiplePersons(List<String> names, Integer age) {
+        List<Person> genericPeople = new List<Person>();
+        for(String notGenericPerson : names){
+            genericPeople.add(createPerson(notGenericPerson, age));
+        }
 
         // Loop through each name in the provided list of names
             // Create a new Person object for each name
@@ -363,7 +429,7 @@ public with sharing class ClassesObjectsMethods {
         
         
         // Return the list of Person objects
-        return null; // Replace null with the variable you used to store the result
+        return genericPeople; // Replace null with the variable you used to store the result
     }
 
 
@@ -378,6 +444,9 @@ public with sharing class ClassesObjectsMethods {
      * @return The Person object of the older person.
      */
     public static Person getOlderPerson(Person person1, Person person2) {
-        return null; // Replace null with the variable you used to store the result
+            if(person1.getAge() >= person2.getAge()){
+                return person1;
+            }
+        return person2; // Replace null with the variable you used to store the result
     }
 }
